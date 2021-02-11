@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-char *rot(char *input, int n_rot, int len, char *output)
+char *rot (char *input, unsigned int n_rot, char *output, unsigned int len)
 {
 	char alpha[] = "0abcdefghijklmnopqrstuvwxyz";
 	char ALPHA[] = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -24,7 +24,7 @@ char *rot(char *input, int n_rot, int len, char *output)
 	}
 }
 
-int is_digit(char *n_rot, int len)
+int is_digit(char *n_rot, unsigned int len)
 {
 	for (int i=0; i < len; i++)
 		if (!isdigit(n_rot[i]))
@@ -34,23 +34,37 @@ int is_digit(char *n_rot, int len)
 
 int main(int argc, char **argv)
 {
-	char *n_rot = argv[2];
-	char *input = argv[1];
-	int digit_len = strlen(n_rot);
-
-	if (argc != 3 || !is_digit(n_rot, digit_len))
-	{
-		printf ("Usage: rot <string> <number_of_rotations>");
-		return 1;
-	}
+	char *n_rot_str = argv[2];
+	int n_rot_len= strlen(n_rot_str);
 	
-	int n_rot_int = atoi(n_rot);
-	int output_len = strlen(argv[1]);
+	// Input
+	char *input = argv[1];
+	unsigned int n_rot = atoi(n_rot_str);
 
-	char output[output_len];
-	rot(input, n_rot_int, output_len, output);
+	// Output
+	unsigned int output_len = strlen(argv[1]);
+	char output[output_len + 1];
+	output[output_len] = '\0';
 
-	printf("%s", output);
+	if (argc != 3 || argv[1] == NULL) {
+		printf ("Usage: rot <string> <number_of_rotations>\n");
+		return 1;
+	} else if (!is_digit(n_rot_str, n_rot_len)) {
+		printf ("This isn't a number\n");
+		printf ("Usage: rot <string> <number_of_rotations>\n");
+		return 1;
+	} else if (n_rot_len > 4) {
+		printf ("Second argument too high\n");
+		printf ("Usage: rot <string> <number_of_rotations>\n");
+		return 1;
+	} else if (strlen(argv[2]) > 65535){
+		printf ("First argument too long\n");
+		printf ("Usage: rot <string> <number_of_rotations>\n");
+	}
+
+	rot(input, n_rot, output, output_len);
+
+	printf("%s\n", output);
 	return 0;
 }
 
