@@ -104,8 +104,6 @@ int main (int argc, char** argv)
 	if (strlen (argv [1] )% 3 != 0)
 		size += 4;
 
-	printf("%d\n", size);
-
 	// Output
 	char base64 [size + 1];
 	base64 [size] = '\0';
