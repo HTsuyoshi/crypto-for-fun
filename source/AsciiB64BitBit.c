@@ -1,4 +1,3 @@
-#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -17,7 +16,7 @@ void bitToB64 (int bitArray [], char* b64Char)
 		// Transform 6 bits to decimal
 		for (int j = 0; j < 6; j++) {
 			if (bitArray [i + j] == 1)
-				charValue += pow(2, 5 - j);	
+				charValue += 255 & 1 << 5 - j;	
 		}
 
 		// Store the char

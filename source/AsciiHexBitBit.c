@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 static char hexAlfa [16] = "0123456789abcdef";
 static char usage [] = "Usage: ascii_hex <string>\n";
@@ -14,11 +13,11 @@ void byteToHex (int byteArray[], char* hex, int i)
 	
 	for (int i = 0; i < 4; i++)
 		if (byteArray [i])
-			int2 += (int) pow (2, i);
+			int2 += 255 & 1 << i;
 	
 	for (int i = 4; i < 8; i++)
 		if (byteArray [i])
-			int1 += (int) pow (2, i - 4);
+			int1 += 255 & 1 << i - 4;
 
 	char2 = hexAlfa [int2];
 	char1 = hexAlfa [int1];
