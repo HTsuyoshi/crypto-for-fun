@@ -66,6 +66,7 @@ int is_alpha (char *key, unsigned int key_len)
 
 int main (int argc, char **argv)
 {
+	// Errors
 	if (argc != 3) {
 		printf ("%s", usage);
 		return 1;

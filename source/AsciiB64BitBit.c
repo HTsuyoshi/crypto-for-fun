@@ -2,7 +2,7 @@
 #include <string.h>
 
 static char alfaB64 [64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-static char usage [] = "AsciiB64 <string>\n";
+static char usage [] = "Usage: AsciiB64 <string>\n";
 
 void bitToB64 (int bitArray [], char* b64Char)
 {
