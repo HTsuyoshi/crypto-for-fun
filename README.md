@@ -4,12 +4,13 @@
 
 ### Old ciphers:
 
-- Caesar Cipher - Rot.c
-- Polyalphabetic/Substitution Cipher - PolyRot.c
+- Caesar Cipher - Rot
+- Polyalphabetic/Substitution Cipher - PolyRot
 
 ### Conversion: 
 
-- Ascii to hexadecimal - AsciiHex.c & AsciiHexBitBit (learning purpose)
+- Ascii to binary - AsciiBin & BinAscii
+- Ascii to hexadecimal - AsciiHex & AsciiHexBitBit (learning purpose)
 - Ascii to base64 - AsciiB64BitBit (learning purpose)
 
 ### Modern:

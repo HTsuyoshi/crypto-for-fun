@@ -11,13 +11,13 @@ void xor (char* plainText, char* key)
 			keyCount = 0;
 
 		// Print cipherText in bits
-		for (int j = 0; j < 8; j++) {
+		for (int j = 7; j >= 0; j--) {
 			// printf ("%d ^ %d = ", (plainText [i] & 1 << j), (key [keyCount] & 1 << j));
 			if ((plainText [i] & 1 << j) ^ (key [keyCount] & 1 << j))
 				printf ("1");
 			else
 				printf ("0");
-			// printf ("\n");
+			//printf ("\n");
 		}
 	}
 	printf ("\n");

@@ -2,15 +2,12 @@
 
 static char usage [] = "simpleXorBtoA <string> <key>\n";
 static char invalid [] = "Invalid string, size is'nt right\n";
-static char invalid2 [] = "Invalid string, string need only 1 and 0\n";
+static char invalid2 [] = "Invalid string, string need to be only 1 and 0\n";
 
 void xor (char* binStr, char* key)
 {
-	// Iterate through the key
-	int keyIndex = 0;
-	
-	// Iterate through the String
-	for (int binIndex = 0; binStr [binIndex] != '\0'; binIndex += 8) {
+	// Iterate through the String and the key
+	for (int binIndex = 0, keyIndex = 0; binStr [binIndex] != '\0'; binIndex += 8) {
 
 		// Loop through the key
 		if (key [keyIndex] == '\0')
@@ -20,19 +17,18 @@ void xor (char* binStr, char* key)
 		int charValue = 0;
 
 		// Take the string bits
-		for (int i = 0; i < 8; i++) {
+		for (int i = 7; i >= 0; i--) {
 
 			// Key bit
 			int keyBool;
-			if (key [keyIndex] & 1 << i)
+			if (key [keyIndex] & 1 << 7 - i)
 				keyBool = (key [keyIndex] & 1 << i) / (key [keyIndex] & 1 << i);
 			else 
 				keyBool = 0;
 
 			// Compare bits
-			if ((binStr [binIndex + i] == '1') ^ (keyBool)) {
-				charValue = charValue | 1 << i;
-			}	
+			if ((binStr [binIndex + i] == '1') ^ (keyBool)) 
+				charValue = charValue | 1 << 7 - i;
 		}
 
 		printf ("%c", charValue);
@@ -47,7 +43,7 @@ int checkString (char* string)
 		if (string [i] != '0' && string [i] != '1')
 			return 1;
 	return 0;
-}
+} 
 
 int main (int argc, char** argv)
 {
@@ -73,3 +69,4 @@ int main (int argc, char** argv)
 
 	return 0;
 }
+*/
