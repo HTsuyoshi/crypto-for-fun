@@ -2,7 +2,7 @@
 ## Some cipher algorithms created for fun
 ### Done:
 
-###Old ciphers:
+### Old ciphers:
 
 - Caesar Cipher - Rot.c
 - Polyalphabetic/Substitution Cipher - PolyRot.c
