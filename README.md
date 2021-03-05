@@ -13,4 +13,6 @@
 - Ascii to base64 - AsciiB64BitBit (learning purpose)
 
 ### Modern:
+#### Symmetric-key:
+##### Stream Cipher:
 - Simple bit-xor based algorithm - simpleXorAtoB & simpleXorBtoA
