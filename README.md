@@ -1,13 +1,3 @@
 # crypto-for-fun
-## Some cipher algorithms created for fun
-### Done:
 
-### Old ciphers:
-
-
-### Conversion: 
-
-
-### Modern:
-#### Symmetric-key:
-##### Stream Cipher:
+Based on the book `Practical Cryptography_ Algorithms and Implementations Using C++`
